@@ -2,36 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Hello') {
             steps {
-                echo 'Repository checked out successfully!'
+                bat 'echo Hello Jenkins!'
+                bat 'dir'
             }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Jenkins Pipeline is working!'
-            }
-        }
-
-        stage('Build') {
-            steps {
-                sh 'echo "Running build..."'
-                sh 'pwd'
-                sh 'ls -la'
-            }
-        }
-    }
-
-    post {
-        always {
-            echo 'Pipeline execution completed.'
-        }
-        success {
-            echo 'SUCCESS!'
-        }
-        failure {
-            echo 'FAILED!'
         }
     }
 }
